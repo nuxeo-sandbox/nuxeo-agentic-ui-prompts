@@ -4,8 +4,9 @@ Ready-to-use prompts to customise [Nuxeo Agentic UI](https://github.com/nuxeo/ag
 (product name: Nuxeo Satori) with an AI coding agent such as Claude Code, without writing the
 code yourself.
 
-> Work in progress. Satori is in Beta and the prompts are not tested yet: see the
-> Status column below.
+> [!CAUTION]
+> Nuxeo Agentic UI / Nuxeo Satori is **Work in progress**, Satori is in Beta and a lot of things
+> can change.
 
 ## Principles
 
