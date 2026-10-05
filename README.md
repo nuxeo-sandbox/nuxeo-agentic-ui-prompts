@@ -58,3 +58,26 @@ code yourself.
 - Say what the agent must not touch (Nuxeo Agentic UI) and where it writes (your package).
 - End with a test step that asks for screenshots and for what could not be verified.
 - Add it to the table above, marked "Not tested yet" until it has been run for real.
+
+## Support
+**These features are not part of the Nuxeo Production platform.**
+
+These solutions are provided for inspiration and we encourage customers to use them as code samples and learning
+resources.
+
+This is a moving project (no API maintenance, no deprecation process, etc.) If any of these solutions are found to be
+useful for the Nuxeo Platform in general, they will be integrated directly into platform, not maintained here.
+
+## Licence
+
+[Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0)
+
+## About Nuxeo
+
+Nuxeo Platform is an open source highly scalable, cloud-native, enterprise content management product with rich multimedia support, written in Java. Data can be stored in both SQL & NoSQL databases.
+
+The development of the Nuxeo Platform is mostly done by Nuxeo employees with an open development model.
+
+The source code, documentation, roadmap, issue tracker, testing, benchmarks are all public.
+
+More information is available at [Hyland/Nuxeo](https://www.hyland.com/en/solutions/products/nuxeo-platform).
