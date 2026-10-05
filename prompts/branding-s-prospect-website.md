@@ -1,6 +1,6 @@
-Brand Nuxeo Satori with the colours of <CUSTOMER NAME>, using their public website: <URL>
+Brand Nuxeo Nuxeo Agentic AI with the colours of <CUSTOMER NAME>, using their public website: <URL>
 
-Satori's source is at <PATH TO agentic-ui-poc>. Use it for reference only: do not change,
+Nuxeo Agentic AI's source is at <PATH TO agentic-ui-poc>. Use it for reference only: do not change,
 add or delete anything there. Everything you write goes in this project.
 
 1. Read the site. Open it (in a browser if you can, otherwise download the page and its
@@ -8,9 +8,9 @@ add or delete anything there. Everything you write goes in this project.
    buttons, links, and the selected tab or menu item. Show them in a small table, with
    where you found each one.
 
-2. Write the file. Start from a copy of Satori's
+2. Write the file. Start from a copy of Nuxeo Agentic AI's
    nuxeo-agentic-ui-package/src/main/config/bootstrap.json and save it to
-   <CONFIG PATH>/bootstrap.json in this project. First read, in Satori's source,
+   <CONFIG PATH>/bootstrap.json in this project. First read, in Nuxeo Agentic AI's source,
    libs/shared/app-config/src/lib/bootstrap-config.ts and Beat 3 of
    docs/beta-demo-runbook.md to see which colour variables the app reads. Then:
    - Add a theme for this customer and make it the default (defaultThemeId).
@@ -21,12 +21,12 @@ add or delete anything there. Everything you write goes in this project.
    - Don't try to change the logo: it is not supported. Tell me if that has changed.
 
 3. Check the package. This project's install.xml must copy the file to
-   nxserver/nuxeo.war/agentic-ui-config/ with overwrite="true": Satori's package already
+   nxserver/nuxeo.war/agentic-ui-config/ with overwrite="true": Nuxeo Agentic AI's package already
    installed a bootstrap.json there, and a copy with overwrite="false" onto an existing
    file makes the install fail. package.xml must depend on nuxeo-agentic-ui. Fix them if
    needed and tell me what you changed.
 
-4. Test it. If my local Nuxeo (Docker container "nuxeo") has Satori installed: back up its
+4. Test it. If my local Nuxeo (Docker container "nuxeo") has Nuxeo Agentic AI installed: back up its
    nxserver/nuxeo.war/agentic-ui-config/bootstrap.json, copy the new one in, and
    screenshot http://localhost:8080/nuxeo/agentic-ui/ (sign-in page, browse page, a
    document with its tabs) next to the customer site. Tell me which areas took the new
