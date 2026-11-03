@@ -15,8 +15,9 @@ code yourself.
 - **Nuxeo Agentic UI is never modified.** The agent reads Nuxeo Agentic AI's source to
   learn how it works and writes everything into your own Nuxeo package, so upgrading
   Nuxeo Agentic UI stays a version bump.
-- **The result is a marketplace package.** That is how Nuxeo deploys configuration, so
-  that is what every prompt produces or adds to.
+- **Configuration goes in a marketplace package.** Code extensions also need a
+  customer-owned Angular host build that registers their providers; a configuration
+  package alone cannot load new component code.
 - **One prompt, one customisation.** Small prompts are easier to tune, test and combine.
 - **Proof, not promises.** Every prompt asks the agent to test its result, show
   screenshots, and say what it could not verify.
@@ -27,6 +28,11 @@ code yourself.
    The agent only reads it.
 2. **Create your Nuxeo package project**, with Nuxeo CLI or by asking your agent to
    scaffold an empty marketplace package that depends on `nuxeo-agentic-ui`.
+   For a code prompt, also provide a customer-owned Angular/Nx host application
+   that consumes `@nuxeo/satori-platform`; follow the
+   [consumer installation guide](https://github.com/nuxeo/Nuxeo-Satori-UI/blob/main/docs/installing-satori-platform.md)
+   for the registry and peer requirements. The panel prompt assumes the alpha is
+   published. Until then, its registry install and end-to-end validation remain pending.
 3. **Start your agent session from that package folder**, and give it read access to
    Nuxeo Agentic UI's folder: `claude --add-dir /path/to/agentic-ui-poc` in the terminal,
    or add the folder to the session in the desktop app.
@@ -39,17 +45,18 @@ code yourself.
 
 ## Prompts
 
-| Prompt                                                                    | What it does                                                                                                         | Level    | Status         |
-| ------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | -------- | -------------- |
-| [branding-s-prospect-website.md](prompts/branding-s-prospect-website.md) | Takes the colours of a prospect's public website, makes them Nuxeo Agentic UI's default theme, and puts their name in the browser tab | Branding | Not tested yet |
+| Prompt                                                                   | What it does                                                                                                                          | Level    | Status                                                               |
+| ------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------------------------------------------------------------------- |
+| [branding-s-prospect-website.md](prompts/branding-s-prospect-website.md) | Takes the colours of a prospect's public website, makes them Nuxeo Agentic UI's default theme, and puts their name in the browser tab | Branding | Not tested yet                                                       |
+| [panel-on-a-document.md](prompts/panel-on-a-document.md)                 | Adds a document panel built from platform components, registered under the customer's prefix and placed by a manifest                 | Code     | Not tested yet — published-package and live Nuxeo validation pending |
 
 ## What can be customised today
 
-| Level         | What you can change                                                                             | Where it goes                                    | Today                                                                         |
-| ------------- | ----------------------------------------------------------------------------------------------- | ------------------------------------------------ | ----------------------------------------------------------------------------- |
-| Branding      | Colours, product name                                                                           | `bootstrap.json`, deployed by your package       | Supported. No logo                                                            |
-| Configuration | Hide, show, reorder or rename menu entries, actions, tabs and columns; show them by permission | A JSON manifest, today stored in a Nuxeo Note    | Supported                                                                     |
-| Code          | Layouts for your own document types, search forms, new screens                                  | Your own Angular code                            | Not yet: custom fields are not shown or editable, and adding code means forking Nuxeo Agentic UI |
+| Level         | What you can change                                                                            | Where it goes                                                                    | Today                                                                                                                   |
+| ------------- | ---------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| Branding      | Colours, product name                                                                          | `bootstrap.json`, deployed by your package                                       | Supported. No logo                                                                                                      |
+| Configuration | Hide, show, reorder or rename menu entries, actions, tabs and columns; show them by permission | A JSON manifest, today stored in a Nuxeo Note                                    | Supported                                                                                                               |
+| Code          | Customer components placed in the documented sidebar, tabs or documentView slots               | Your own Angular extension library and host build, plus a configuration manifest | Requires the published platform package and a customer host that registers the extension provider; see the panel prompt |
 
 ## Adding a prompt
 
@@ -60,6 +67,7 @@ code yourself.
 - Add it to the table above, marked "Not tested yet" until it has been run for real.
 
 ## Support
+
 **These features are not part of the Nuxeo Production platform.**
 
 These solutions are provided for inspiration and we encourage customers to use them as code samples and learning
